@@ -13,9 +13,10 @@ colnames(similarity.matrix) <- colnames(allele.matrix)
 rownames(similarity.matrix) <- colnames(allele.matrix)
 
 write.table(similarity.matrix, file = 'M.matrix.reducedpk.2L.txt', quote=F, row.names=T, col.names=T, sep='\t')
-                                   
 
-				
+              #Made an edit
+
+
 				 ### Making the A matrix ###
 reduced <- read.table("reducedpk.all.txt", stringsAsFactors = F, header=T)
 
@@ -47,11 +48,11 @@ options(scipen=999)
 # For loop to calculate matrix values
 for (i in 1:ncol(similarity.matrix)){
   for (j in i:ncol(similarity.matrix)){
-    similarity.matrix[i,j] <- similarity.matrix[j,i] <- 
-    #A0 from paper: 
+    similarity.matrix[i,j] <- similarity.matrix[j,i] <-
+    #A0 from paper:
     mean((x.array[,i]-2*pk)*(x.array[,j]-2*pk)/(2*pk*(1-pk)), na.rm=T)
     #A0
-    #mean((x.array[,i]-pk)*(x.array[,j]-pk)/(pk*(1-pk)), na.rm=T)  
+    #mean((x.array[,i]-pk)*(x.array[,j]-pk)/(pk*(1-pk)), na.rm=T)
     A
     sum((x.array[,i]-pk)*(x.array[,j]-pk), na.rm=T)/(sum(pk*(1-pk), na.rm=T))
   }
